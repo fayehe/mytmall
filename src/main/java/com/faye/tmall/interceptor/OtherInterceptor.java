@@ -33,7 +33,6 @@ public class OtherInterceptor extends HandlerInterceptorAdapter {
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler) throws Exception {
     	return true;
-
     }
  
     /**
@@ -41,9 +40,8 @@ public class OtherInterceptor extends HandlerInterceptorAdapter {
      * 可在modelAndView中加入数据，比如当前时间
      */
 
-    public void postHandle(HttpServletRequest request,
-            HttpServletResponse response, Object handler,    
-            ModelAndView modelAndView) throws Exception {
+    public void postHandle(HttpServletRequest request, HttpServletResponse response,
+                           Object handler, ModelAndView modelAndView) throws Exception {
     	/*这里是获取分类集合信息，用于放在搜索栏下面*/
         List<Category> cs = categoryService.list();
         request.getSession().setAttribute("cs", cs);
@@ -61,10 +59,8 @@ public class OtherInterceptor extends HandlerInterceptorAdapter {
             for (OrderItem oi : ois) {
             	cartTotalItemNumber+=oi.getNumber();
             }
-       	
         }
         request.getSession().setAttribute("cartTotalItemNumber", cartTotalItemNumber);
-
     }
  
     /**  

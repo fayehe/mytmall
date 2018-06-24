@@ -29,8 +29,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
      *    从最后一个拦截器往回执行所有的postHandle()
      *    接着再从最后一个拦截器往回执行所有的afterCompletion()
      */
-    public boolean preHandle(HttpServletRequest request,
-                             HttpServletResponse response, Object handler) throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
         HttpSession session = request.getSession();
         String contextPath=session.getServletContext().getContextPath();
@@ -57,7 +56,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
                 }
             }
         }
-
         return true;
 
     }
@@ -67,10 +65,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
      * 可在modelAndView中加入数据，比如当前时间
      */
 
-    public void postHandle(HttpServletRequest request,
-            HttpServletResponse response, Object handler,    
-            ModelAndView modelAndView) throws Exception {
-
+    public void postHandle(HttpServletRequest request, HttpServletResponse response,
+                           Object handler, ModelAndView modelAndView) throws Exception {
 
     }
  
@@ -80,9 +76,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
      * 当有拦截器抛出异常时,会从当前拦截器往回执行所有的拦截器的afterCompletion()  
      */
      
-    public void afterCompletion(HttpServletRequest request,    
-            HttpServletResponse response, Object handler, Exception ex)  
-    throws Exception {  
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response,
+                                Object handler, Exception ex) throws Exception {
            
     }  
        
